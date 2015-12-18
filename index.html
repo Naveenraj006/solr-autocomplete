@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Solr Autocomplete</title>
+<style>
+
+table, th, td {
+   border: 1px solid black;
+   padding:5px;
+}h1{
+color:#09C;	
+}
+
+</style>
+</head>
+
+<body>
+<!--- ---->
+<h1 align="center" > Solr Autocomplete plugin for jQuery</h1>
+<table>
+<tr><td><b>URL :</b></td><td>Mention the url in which apache solr service is running. <br /><i>ex:-http://localhost:8080/solr/collection/select?q= </i><br/>
+remove extra attributes with solr url.</td><td>url:http://localhost:8080/solr/collection/select?q=</td></tr>
+<tr><td><b>GET :</b></td><td>Mention the get variable , which means from which column you have to serach data from solr collection.<br />
+ex<sup>1</sup>:-http://localhost:8080/solr/collection/select?q=<b>name</b>:search_value<br />ex<sup>2</sup>:-http://localhost:8080/solr/collection/select?q=<b>id</b>:search_value</td><td><b>For ex1</b><br/>get:"name"<br />
+<br /><b>For ex2</b><br/>get:"id"</td></tr>
+<tr><td><b>FIELDS :</b></td><td>Mention the field colums which you have to get for each input.If you want to get the ID of autocomplete fields then add <i>"id"</i> to the field. </td><td>fields:"name,id"</td></tr>
+<tr><td><b>SHOW :</b></td><td>SHOW field tells which field should be replace at current input field.<br/>Most prefer name field to replace.</td><td>show:"name"</td></tr>
+<tr><td><b>ROWS :</b></td><td>Mention the number of rows to receive for each query.<br/>Default row size is 3.</td><td>rows:3</td></tr>
+<tr><td><b>THEME :</b></td><td>MOST IMPORTANT FEATURE<br/>You can make your autocomplete design fully customizable.Type  your html code and design your css .Customize your html design within theme field function.</td><td>theme:function(e){<br/>return'<div class="eac-item"><span>'+e.name+"</span></div>"<br/>}</td></tr>
+<tr><td><b>ONSELECT :</b></td><td>Define this function if you want to add extra functionalities when selecting a option.Ex:- On selecting show the complete information associated with that option.On selecting a movie name , we can show its id,name,director,series,etc instantly. This fields should first mentioned in FIELDS property.  </td><td>onselect: function(obj){<br/>
+alert(obj.name +"<br>"+obj.id);<br/>
+			}<br/>
+	 });
+</td></tr>
+
+</table>
+<!---- -->
+</body>
+</html>

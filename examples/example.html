@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Solr autocomplete Example</title>
+<link href="../src/s-autocomplete.min.css" rel="stylesheet"  type="text/css"  />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="../src/sauto.js"></script>
+
+
+</head>
+
+<body>
+<h2 style="color:#09C">Solr-Autocomplete Plugin Example</h2>
+
+<!-- -->
+<input name="name" id="input_box" placeholder="Type a name"/>
+<script>
+
+
+$( "#input_box" ).sAuto({
+	 url:'http://localhost:8080/solr/collection/select?q=',
+	 get:'name',
+	 fields:"name,id",
+	 onselect: function(obj){
+		 
+		 //do whatever with data after select ,  ex:- form submit , append data ,etc
+		 alert(obj.name + " is selected");
+		 
+			}
+	 });
+
+
+</script>
+
+<hr />
+
+<h2 style="color:#09C">Solr-Autocomplete with custom-theme</h2>
+
+<!-- -->
+<input name="name" id="input_box2" placeholder="Type a name"/>
+
+
+<script>
+
+
+$( "#input_box2" ).sAuto({
+	 url:'http://localhost:8080/solr/collection/select?q=',
+	 get:'name',
+	 fields:"name,id",
+	 show:"id",
+	 rows:3,
+	 theme: function(e){return '<div class="eac-item"><div style="display:inline-block;padding:10px;"><img src="img/user.png"/></div><div  style="display:inline-block;position:relative;top:0px;padding:2px;"><span style="font-size:20px;color:#428bca;">'+e.name+"</span><br><span>ID :</span><span>"+e.id+"</span></div></div>";},
+	 onselect: function(obj){
+		 
+		 //do whatever with data after select ,  ex:- form submit , append data ,etc
+		 //alert(obj.name + " is selected");
+		 
+			}
+	 });
+
+
+</script>
+
+<hr />
+</body>
+</html>
