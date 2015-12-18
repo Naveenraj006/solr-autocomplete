@@ -1,7 +1,7 @@
 # solr-autocomplete
 
 Autocomplete plugin for Apache solr.
-<h4>Features</h4></br/>
+<h4>Features</h4>
 <ul>
 <li>Fully Customizable Plugin</li>
 <li>Support only JSON</li>
